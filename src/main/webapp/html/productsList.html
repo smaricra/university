@@ -1,43 +1,38 @@
-<div ng-controller="productsListCtrl">
-	
-	<div>
-		<select ng-model="restaurantId" ng-change="selectedRestaurant()">
-			<option ng-repeat="restaurant in restaurants track by $index" ng-if="restaurant" value="{{restaurant.id}}">{{restaurant.name}}</option>
-		</select>
-
-
-		
-		<select ng-model="sava" ng-change="maric()">        
-       		<option value="FOOD">Food</option>
-       		<option value="BEVERAGE">Beverage</option>
-		</select>
-	</div>
-	<table>
-		<caption>PRODUCTS</caption>
-		<thead style="display: list-item;">
+<div class="productslist" ng-controller="productsListCtrl">
+	<label for="restaurants">Please select a restaurant</label>
+	<select id="restaurants" class="form-control mb-3" ng-model="restaurantId" ng-change="selectedRestaurant()">
+		<option ng-repeat="restaurant in restaurants track by $index" ng-if="restaurant" value="{{restaurant.id}}">{{restaurant.name}}</option>
+	</select>
+	<table class="table">
+		<thead>
 			<tr>
-				<th style="max-width: 140px; min-width: 140px">
-					<input style="max-width: 140px; min-width: 140px" type="text" placeholder="Search by name" ng-model="searchProductByName" ng-change="searchProduct()" >
+				<th>
+					<input class="form-control" type="text" placeholder="Search by name" ng-model="searchProductByName" ng-change="searchProduct()">
 				</th>
-				<th style="max-width: 80px; min-width: 80px">
-					<input style="max-width: 80px; min-width: 80px" type="text" placeholder="By type" ng-model="searchProductByType" ng-change="searchProduct()" >
+				<th>
+					<input class="form-control" type="text" placeholder="By type" ng-model="searchProductByType" ng-change="searchProduct()">
 				</th>
-				<th style="display: flex; max-width: 80px; min-width: 80px">
-					<input onKeyDown="integerValidation()" style="max-width: 40px; min-width: 40px" type="text" placeholder="Min" ng-model="searchProductByMinPrice" ng-change="searchProduct()" >
-					<input onKeyDown="integerValidation()" style="max-width: 40px; min-width: 40px" type="text" placeholder="Max" ng-model="searchProductByMaxPrice" ng-change="searchProduct()" >
+				<th>
+					<input class="form-control mb-2" onKeyDown="integerValidation()" type="text" placeholder="Min" ng-model="searchProductByMinPrice"
+					 ng-change="searchProduct()">
+					<input class="form-control" onKeyDown="integerValidation()" type="text" placeholder="Max" ng-model="searchProductByMaxPrice"
+					 ng-change="searchProduct()">
 				</th>
-				<th style="max-width: 80px; min-width: 80px">
-					<input onKeyDown="integerValidation()" style="max-width: 80px; min-width: 80px" type="text" placeholder="By quantity" ng-model="searchProductByQuantity" ng-change="searchProduct()" >
+				<th>
+					<input class="form-control" onKeyDown="integerValidation()" type="text" placeholder="By quantity" ng-model="searchProductByQuantity"
+					 ng-change="searchProduct()">
 				</th>
-				<th style="max-width: 80px; min-width: 80px">
-					<input style="max-width: 80px; min-width: 80px" type="text" placeholder="By unit" ng-model="searchProductByUnit" ng-change="searchProduct()" >
+				<th>
+					<input class="form-control" type="text" placeholder="By unit" ng-model="searchProductByUnit" ng-change="searchProduct()">
 				</th>
-				<th style="max-width: 200px; min-width: 200px">
-					<input style="max-width: 200px; min-width: 200px" type="text" placeholder="Search by description" ng-model="searchProductByDescription" ng-change="searchProduct()" >
+				<th>
+					<input class="form-control" type="text" placeholder="Search by description" ng-model="searchProductByDescription"
+					 ng-change="searchProduct()">
 				</th>
-				<th style="max-width: 140px; min-width: 140px">
-					<button ng-click="clearProductFilter()">Clear filter</button>
+				<th>
+					<button class="btn btn-danger" ng-click="clearProductFilter()">Clear filter</button>
 				</th>
+			</tr>
 			<tr>
 				<th>Name</th>
 				<th>Type</th>
@@ -45,74 +40,77 @@
 				<th>Quantity</th>
 				<th>Unit</th>
 				<th>Description</th>
-				<th style="max-width: 160px; min-width: 160px">Action</th>
+				<th>Action</th>
 			</tr>
 		</thead>
-		<tbody style="display: list-item; border: 1px solid green; height: 100px; overflow-y: scroll">
-	  		<tr align="left" ng-repeat="product in restaurantProducts track by $index" ng-if="product">
-	    		<td style="max-width: 140px; min-width: 140px">
-	    			<input style="max-width: 140px" type="text" ng-model="product.name" ng-change="onProductChange($index, product)" value="product">
-	    		</td>
-	    		<td style="max-width: 80px; min-width: 80px">
-	    			<select ng-model="product.type" ng-change="onProductChange($index, product)" style="width: -webkit-fill-available;">        
-	            		<option value="FOOD">Food</option>
-	            		<option value="BEVERAGE">Beverage</option>
-	    			</select>
-	    		</td>
-	    		<td style="max-width: 80px; min-width: 80px">
-	    			<input onKeyDown="integerValidation()" style="max-width: 80px; min-width: 80px;" type="text" ng-model="product.price" ng-change="onProductChange($index, product)" value="product">
-	    		</td>
-	    		<td style="max-width: 80px; min-width: 80px">
-	    			<input onKeyDown="integerValidation()" style="max-width: 80px" type="text" ng-model="product.quantity" ng-change="onProductChange($index, product)" value="product">
-	    		</td>
-	    		<td style="max-width: 80px; min-width: 80px">
-	    			<select ng-model="product.unit" ng-change="onProductChange($index, product)" style="width: -webkit-fill-available;">        
-	            		<option value="G">g</option>
-	            		<option value="ML">ml</option>
-	            		<option value="PIECE">piece</option>
-	    			</select>
-	    		</td>
-	    		<td style="max-width: 200px; min-width: 200px">
-	    			<input style="min-width: 200px" type="text" ng-model="product.description" ng-change="onProductChange($index, product)" value="product">
-	    		</td>
-	    		<td style="display: flex; max-width: 160px; min-width: 160px">
-	    			<button style="width:33%;" ng-disabled="!resetProductButton[$index]" ng-click="resetProduct($index, product.id)">Reset</button>
-	    			<button style="width:33%;" ng-disabled="!resetProductButton[$index]" ng-click="updateProduct($index, product)">Update</button>
-	    			<button style="width:33%;" ng-click="deleteProduct(product.id)">Delete</button>
-	    		</td>
-	  		</tr>
-	  	</tbody>
-	  	<tfoot style="display: list-item;">
-	  		<tr>
-	  			<td style="max-width: 140px; min-width: 140px">
-	  				<input style="max-width: 140px" type="text" ng-model="newProduct.name" ng-change="onNewProductChange()">
-	  			</td>
-	  			<td style="max-width: 80px; min-width: 80px">
-	  				<select ng-model="newProduct.type" ng-change="onNewProductChange()" style="width: -webkit-fill-available;">        
-	            		<option value="FOOD">Food</option>
-	            		<option value="BEVERAGE">Beverage</option>
-	    			</select>
-	  			</td>
-	  			<td style="max-width: 80px; min-width: 80px">
-	  				<input style="max-width: 80px" type="text" onKeyDown="integerValidation()" ng-model="newProduct.price" ng-change="onNewProductChange()">
-	  			</td>
-	  			<td style="max-width: 80px; min-width: 80px">
-	  				<input style="max-width: 80px" type="text" onKeyDown="integerValidation()" ng-model="newProduct.quantity" ng-change="onNewProductChange()">
-	  			</td>
-	  			<td style="max-width: 80px; min-width: 80px">
-	  				<select ng-model="newProduct.unit" ng-change="onNewProductChange()" style="width: -webkit-fill-available;">        
-	            		<option value="ML">ml</option>
-	            		<option value="G">g</option>
-	            		<option value="PIECE">piece</option>
-	    			</select>
-	  			</td>
-	  			<td style="max-width: 200px; min-width: 200px">
-	  				<input style="min-width: 200px" type="text" ng-model="newProduct.description" ng-change="onNewProductChange()">
-	  			</td>
-	    		<td style="max-width: 160px; min-width: 160px">
-	    			<button style="max-width: 160px; min-width: 160px" ng-disabled="!newProductButton" ng-click="addProduct(newProduct)">Add product</button>
-	    		</td>
-	  		</tr>
-	  	</tfoot>
+		<tbody>
+			<tr ng-repeat="product in restaurantProducts track by $index" ng-if="product">
+				<td>
+					<input class="form-control" type="text" ng-model="product.name" ng-change="onProductChange($index, product)" value="product">
+				</td>
+				<td>
+					<select class="form-control" ng-model="product.type" ng-change="onProductChange($index, product)" style="width: -webkit-fill-available;">
+						<option value="FOOD">Food</option>
+						<option value="BEVERAGE">Beverage</option>
+					</select>
+				</td>
+				<td>
+					<input class="form-control" onKeyDown="integerValidation()" type="text" ng-model="product.price" ng-change="onProductChange($index, product)"
+					 value="product">
+				</td>
+				<td>
+					<input class="form-control" onKeyDown="integerValidation()" type="text" ng-model="product.quantity" ng-change="onProductChange($index, product)"
+					 value="product">
+				</td>
+				<td>
+					<select class="form-control" ng-model="product.unit" ng-change="onProductChange($index, product)" style="width: -webkit-fill-available;">
+						<option value="G">g</option>
+						<option value="ML">ml</option>
+						<option value="PIECE">piece</option>
+					</select>
+				</td>
+				<td>
+					<input class="form-control" type="text" ng-model="product.description" ng-change="onProductChange($index, product)"
+					 value="product">
+				</td>
+				<td>
+					<button class="btn btn-danger" ng-disabled="!resetProductButton[$index]" ng-click="resetProduct($index, product.id)">Reset</button>
+					<button class="btn btn-success" ng-disabled="!resetProductButton[$index]" ng-click="updateProduct($index, product)">Update</button>
+					<button class="btn btn-danger" ng-click="deleteProduct(product.id)">Delete</button>
+				</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td>
+					<input class="form-control" type="text" ng-model="newProduct.name" ng-change="onNewProductChange()">
+				</td>
+				<td>
+					<select class="form-control" ng-model="newProduct.type" ng-change="onNewProductChange()" style="width: -webkit-fill-available;">
+						<option value="FOOD">Food</option>
+						<option value="BEVERAGE">Beverage</option>
+					</select>
+				</td>
+				<td>
+					<input class="form-control" type="text" onKeyDown="integerValidation()" ng-model="newProduct.price" ng-change="onNewProductChange()">
+				</td>
+				<td>
+					<input class="form-control" type="text" onKeyDown="integerValidation()" ng-model="newProduct.quantity" ng-change="onNewProductChange()">
+				</td>
+				<td>
+					<select class="form-control" ng-model="newProduct.unit" ng-change="onNewProductChange()" style="width: -webkit-fill-available;">
+						<option value="ML">ml</option>
+						<option value="G">g</option>
+						<option value="PIECE">piece</option>
+					</select>
+				</td>
+				<td>
+					<input class="form-control" type="text" ng-model="newProduct.description" ng-change="onNewProductChange()">
+				</td>
+				<td>
+					<button class="btn btn-success" ng-disabled="!newProductButton" ng-click="addProduct(newProduct)">Add product</button>
+				</td>
+			</tr>
+		</tfoot>
 	</table>
 </div>

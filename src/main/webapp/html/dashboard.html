@@ -2,73 +2,78 @@
 <link rel="stylesheet" href="css/w3.css">
 <link rel="stylesheet" href="css/dashboard.css">
 <div class="w3-sidebar w3-bar-block w3-black w3-card" style="width:130px; float:left">
-  <h5 class="w3-bar-item">Menu</h5>
-  <button class="w3-bar-item w3-button tablink" ng-click="topTen($event, 'Top10')">Top 10</button>
-  <button class="w3-bar-item w3-button tablink" ng-click="openLink($event, 'DOMESTIC')">Domestic</button>
-  <button class="w3-bar-item w3-button tablink" ng-click="openLink($event, 'BARBECUE')">Barbecue</button>
-  <button class="w3-bar-item w3-button tablink" ng-click="openLink($event, 'CHINESE')">Chinese</button>
-  <button class="w3-bar-item w3-button tablink" ng-click="openLink($event, 'INDIAN')">Indian</button>
-  <button class="w3-bar-item w3-button tablink" ng-click="openLink($event, 'PASTRY_SHOP')">Pastry Shop</button>
-  <button class="w3-bar-item w3-button tablink" ng-click="openLink($event, 'PIZZERIA')">Pizza Place</button>
+	<h5 class="w3-bar-item">Menu</h5>
+	<button class="w3-bar-item w3-button tablink" ng-click="topTen($event, 'Top10')">Top 10</button>
+	<button class="w3-bar-item w3-button tablink" ng-click="openLink($event, 'DOMESTIC')">Domestic</button>
+	<button class="w3-bar-item w3-button tablink" ng-click="openLink($event, 'BARBECUE')">Barbecue</button>
+	<button class="w3-bar-item w3-button tablink" ng-click="openLink($event, 'CHINESE')">Chinese</button>
+	<button class="w3-bar-item w3-button tablink" ng-click="openLink($event, 'INDIAN')">Indian</button>
+	<button class="w3-bar-item w3-button tablink" ng-click="openLink($event, 'PASTRY_SHOP')">Pastry Shop</button>
+	<button class="w3-bar-item w3-button tablink" ng-click="openLink($event, 'PIZZERIA')">Pizza Place</button>
 </div>
 
 
 
-<div style="margin-left:130px">
+<div class="container-fluid" style="padding-left:130px">
 
-	<br/>
-	
-	<div ng-if="top10Selected" id="DOMESTIC" class="w3-container city w3-animate-left">
-    	<div ng-repeat="product in best10Products track by $index" ng-if="product" style="float:left; width:200px; height:300px">
-    		 <div class="w3-card-4" style="width:90%; height:90%">
-      			<p style="font-weight: bold; max-height: 10px;">{{product.restaurantName}}</p>
-      			<img ng-src="images/{{product.type}}.png" alt="Norway" style="width:100%; height:50%">
-      			<div class="w3-container w3-center">
-      				
-        			<p style="font-weight: bold; max-height: 10px;">{{product.name}}</p>
-        			<p style="max-height: 40px; font-size: xx-small; overflow: hidden;">{{product.type}}</p>
-        			<p style="max-height: 40px; font-size: xx-small; overflow: hidden;">{{product.quantity}}{{product.unit}}</p>
-        			<p style="max-height: 40px; font-size: xx-small; overflow: hidden;">${{product.price}}</p>
-      				<button ng-click="onSelectRestaurant(restaurant.id)" class="button button2" style="vertical-align:middle"><span>Menu </span></button>
-      			</div>
-   			</div>
-		</div>
-    </div>
-	
-	<div ng-if="categorySelected" id="DOMESTIC" class="w3-container city w3-animate-left">
-    	<div ng-repeat="restaurant in selectedRestaurants track by $index" ng-if="restaurant" style="float:left; width:200px; height:300px">
-    		<div class="w3-card-4" style="width:90%; height:90%">
-      			<img ng-src="images/{{restaurant.category}}.png" alt="Norway" style="width:100%; height:50%">
-      			<div class="w3-container w3-center">
-        			<p style="font-weight: bold; max-height: 10px;">{{restaurant.name}}</p>
-        			<p style="max-height: 40px; font-size: xx-small; overflow: hidden;">{{restaurant.address}}</p>
-      				<button ng-click="onSelectRestaurant(restaurant.id)" class="button button2" style="vertical-align:middle"><span>Menu </span></button>
-      			</div>
-   			</div>
-		</div>
-    </div>
-  
-  	<div ng-if="restaurantSelected" id="blap" class="w3-container city w3-animate-left">
-		<button ng-click="onBackRestaurant()" class="button button2" style="vertical-align:middle"><span>Back</span></button>
-		<br/>
-		<p style="border-bottom: 2px solid red; color:red; text-transform: uppercase""> {{selectedRestaurant.name}}'s products</p>
-		<br/>
-		<div ng-repeat="product in selectedProducts track by $index" ng-if="product" style="float:left; width:200px; height:300px">
-    		<div class="w3-card-4" style="width:90%; height:90%">
-      			<img ng-src="images/{{product.type}}.png" alt="Norway" style="width:100%; height:50%">
-      			<div class="w3-container w3-center">
-        			<p style="font-weight: bold; max-height: 10px;">{{product.name}}</p>
-        			<p style="max-height: 40px; font-size: xx-small; overflow: hidden;">{{product.type}}</p>
-        			<p style="max-height: 40px; font-size: xx-small; overflow: hidden;">{{product.quantity}}{{product.unit}}</p>
-        			<p style="max-height: 40px; font-size: xx-small; overflow: hidden;">${{product.price}}</p>
-        			<input ng-model="ammount"style="max-width: 40px;" onKeyDown="integerValidation()" type="number" min ="1" name="points" step="1" value="1">
-      				<button ng-click="addToChart(product.id, ammount)" class="button button2" style="vertical-align:middle"><span>Add to chart </span></button>
-      			</div>
-   			</div>
-		</div>
-  </div>
+	<br />
+		<div ng-if="top10Selected" id="DOMESTIC" class="w3-container city w3-animate-left row">
+			<div class="col-12 col-md-4 col-lg-2 mb-3 d-flex flex-column" ng-repeat="product in best10Products track by $index" ng-if="product">
+				<div class="w3-card-4 text-center py-3 flex-grow-1">
+					<p style="font-weight: bold; max-height: 10px;">{{product.restaurantName}}</p>
+					<img ng-src="images/{{product.type}}.png" alt="Norway" style="width:75px; height:75px">
+					<div class="w3-container w3-center">
 
+						<p style="font-weight: bold; max-height: 10px;">{{product.name}}</p>
+						<p style="font-size: xx-small; overflow: hidden;">{{product.type}}</p>
+						<p style="font-size: xx-small; overflow: hidden;">{{product.quantity}}{{product.unit}}</p>
+						<p style="font-size: xx-small; overflow: hidden;">${{product.price}}</p>
+						<button ng-click="onSelectRestaurant(restaurant.id)" class="button button2" style="vertical-align:middle"><span>Menu
+							</span></button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div ng-if="categorySelected" id="DOMESTIC" class="w3-container city w3-animate-left row">
+			<div class="col-12 col-md-4 col-lg-2 mb-3 d-flex flex-column" ng-repeat="restaurant in selectedRestaurants track by $index" ng-if="restaurant">
+				<div class="w3-card-4 text-center py-3 flex-grow-1">
+					<img ng-src="images/{{restaurant.category}}.png" alt="Norway" style="width:75px; height:75px">
+					<div class="w3-container w3-center">
+						<p style="font-weight: bold;">{{restaurant.name}}</p>
+						<p style="font-size: xx-small; overflow: hidden;">{{restaurant.address}}</p>
+						<button ng-click="onSelectRestaurant(restaurant.id)" class="button button2" style="vertical-align:middle"><span>Menu
+							</span></button>
+						<button ng-click="onSelectRestaurant(restaurant.id)" class="button button2" style="vertical-align:middle"><span>LIKE
+							</span></button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div ng-if="restaurantSelected" id="blap" class="w3-container city w3-animate-left row">
+			<div class="col-12">
+
+				<button ng-click="onBackRestaurant()" class="button button2" style="vertical-align:middle"><span>Back</span></button>
+				<br />
+				<p style="border-bottom: 2px solid red; color:red; text-transform: uppercase""> {{selectedRestaurant.name}}'s products">
+				</p>
+			</div>
+			<div class="col-12 col-md-4 col-lg-2 mb-3 d-flex flex-column"  ng-repeat="product in selectedProducts track by $index" ng-if="product">
+				<div class="w3-card-4 text-center py-3 flex-grow-1">
+					<img ng-src="images/{{product.type}}.png" alt="Norway" style="width:75px; height:75px">
+					<div class="w3-container w3-center">
+						<p style="font-weight: bold;">{{product.name}}</p>
+						<p style="font-size: xx-small; overflow: hidden;">{{product.type}}</p>
+						<p style="font-size: xx-small; overflow: hidden;">{{product.quantity}}{{product.unit}}</p>
+						<p style="font-size: xx-small; overflow: hidden;">${{product.price}}</p>
+						<input ng-model="ammount" style="max-width: 40px;" onKeyDown="integerValidation()" type="number" min="1" name="points"
+						 step="1" value="1">
+						<button ng-click="addToChart(product.id, ammount)" class="button button2" style="vertical-align:middle"><span>Add
+								to chart </span></button>
+					</div>
+				</div>
+			</div>
+		</div>
 
 </div>
-
-

@@ -1,29 +1,34 @@
-<div ng-controller="vehiclesListCtrl">
-	<table>
-		<caption>VEHICLES</caption>
-		<thead style="display: list-item;">
+<div class="vehicleslist" ng-controller="vehiclesListCtrl">
+	<table class="table">
+		<thead>
 			<tr>
-				<th style="max-width: 140px; min-width: 140px">
-					<input style="max-width: 140px; min-width: 140px" type="text" placeholder="Search by brand" ng-model="searchVehicleByBrand" ng-change="searchVehicle()" >
+				<th>
+					<input class="form-control" type="text" placeholder="Search by brand" ng-model="searchVehicleByBrand" ng-change="searchVehicle()">
 				</th>
-				<th style="max-width: 140px; min-width: 140px">
-					<input style="max-width: 140px; min-width: 140px" type="text" placeholder="Search by model" ng-model="searchVehicleByModel" ng-change="searchVehicle()" >
+				<th>
+					<input class="form-control" type="text" placeholder="Search by model" ng-model="searchVehicleByModel" ng-change="searchVehicle()">
 				</th>
-				<th style="max-width: 100px; min-width: 100px">
-					<input style="max-width: 100px; min-width: 100px" type="text" placeholder="Search by type" ng-model="searchVehicleByType" ng-change="searchVehicle()" >
+				<th>
+					<input class="form-control" type="text" placeholder="Search by type" ng-model="searchVehicleByType" ng-change="searchVehicle()">
 				</th>
-				<th style="max-width: 100px; min-width: 100px">
-					<input style="max-width: 100px; min-width: 100px" type="text" placeholder="By registration" ng-model="searchVehicleByRegistration" ng-change="searchVehicle()" >
+				<th>
+					<input class="form-control" type="text" placeholder="By registration" ng-model="searchVehicleByRegistration"
+					 ng-change="searchVehicle()">
 				</th>
-				<th style="max-width: 100px; min-width: 100px">
-					<input style="max-width: 100px; min-width: 100px" type="text" onKeyDown="integerValidation()" placeholder="By year" ng-model="searchVehicleByYear" ng-change="searchVehicle()" >
+				<th>
+					<input class="form-control" type="text" onKeyDown="integerValidation()" placeholder="By year" ng-model="searchVehicleByYear"
+					 ng-change="searchVehicle()">
 				</th>
-				<th style="max-width: 80px; min-width: 80px">
-					<input style="max-width: 80px; min-width: 80px" type="text" placeholder="Available" ng-model="searchVehicleByAvailable" ng-change="searchVehicle()" >
+				<th>
+					<input class="form-control" type="text" placeholder="Available" ng-model="searchVehicleByAvailable" ng-change="searchVehicle()">
 				</th>
-				<th style="max-width: 200px; min-width: 200px">
-					<input style="max-width: 200px; min-width: 200px" type="text" placeholder="Search by note" ng-model="searchVehicleByNote" ng-change="searchVehicle()" >
-				</th>		
+				<th>
+					<input class="form-control" type="text" placeholder="Search by note" ng-model="searchVehicleByNote" ng-change="searchVehicle()">
+				</th>
+				<th>
+					<button class="btn btn-danger" ng-click="clearVehicleFilter()">Clear filter</button>
+				</th>
+			</tr>
 			<tr>
 				<th>Brand</th>
 				<th>Model</th>
@@ -32,80 +37,196 @@
 				<th>Prod. year</th>
 				<th>Available</th>
 				<th>Note</th>
-				<th style="max-width: 160px; min-width: 160px">Action</th>
+				<th>Action</th>
 			</tr>
 		</thead>
-		<tbody style="display: list-item; border: 1px solid green; height: 100px; overflow-y: scroll">
-	  		<tr align="left" ng-repeat="vehicle in vehicles track by $index" ng-if="vehicle">
-	    		<td style="max-width: 140px; min-width: 140px">
-	    			<input style="max-width: 140px" type="text" ng-model="vehicle.brand" ng-change="onVehicleChange($index, vehicle)" value="vehicle">
-	    		</td>
-	    		<td style="max-width: 140px; min-width: 140px">
-	    			<input style="max-width: 140px" type="text" ng-model="vehicle.model" ng-change="onVehicleChange($index, vehicle)" value="vehicle">
-	    		</td>
-	    		<td style="max-width: 100px; min-width: 100px">
-	    			<select ng-model="vehicle.type" ng-change="onVehicleChange($index, vehicle)" style="width: -webkit-fill-available;">        
-	            		<option value="CAR">Car</option>
-	            		<option value="SCOOTER">Scooter</option>
-	            		<option value="BIKE">Bike</option>
-	    			</select>
-	    		</td>
-	    		<td style="max-width: 100px; min-width: 100px">
-	    			<input style="max-width: 100px" type="text" ng-model="vehicle.regNumber" ng-change="onVehicleChange($index, vehicle)" value="vehicle">
-	    		</td>
-	    		<td style="max-width: 100px; min-width: 100px">
-	    			<input style="max-width: 100px" type="number" ng-model="vehicle.productionYear" ng-change="onVehicleChange($index, vehicle)">
-	    		</td>
-	    		<td style="max-width: 80px; min-width: 80px">
-	    			<select ng-model="vehicle.available" ng-selected=true ng-change="onVehicleChange($index, vehicle)" style="width: -webkit-fill-available;">        
-	            		<option selected=true value=true>YES</option>
-	            		<option ng-selected="vehicle.available" value=false>NO</option>
-	    			</select>
-	    		</td>
-	    		<td style="max-width: 200px; min-width: 200px">
-	    			<input style="min-width: 200px" type="text" ng-model="vehicle.note" ng-change="onVehicleChange($index, vehicle)" value="vehicle">
-	    		</td>
-	    		<td style="display: flex; max-width: 160px; min-width: 160px">
-	    			<button style="width:33%;" ng-disabled="!resetVehicleButton[$index]" ng-click="resetVehicle($index, vehicle.id)">Reset</button>
-	    			<button style="width:33%;" ng-disabled="!resetVehicleButton[$index]" ng-click="updateVehicle($index, vehicle)">Update</button>
-	    			<button style="width:33%;" ng-click="deleteVehicle(vehicle.id)">Delete</button>
-	    		</td>
-	  		</tr>
-	  	</tbody>
-	  	<tfoot style="display: list-item;">
-	  		<tr>
-	  			<td style="max-width: 140px; min-width: 140px">
-	  				<input style="max-width: 140px" type="text" ng-model="newVehicle.brand" ng-change="onNewVehicleChange()">
-	  			</td>
-	  			<td style="max-width: 140px; min-width: 140px">
-	  				<input style="max-width: 140px" type="text" ng-model="newVehicle.model" ng-change="onNewVehicleChange()">
-	  			</td>
-	  			<td style="max-width: 100px; min-width: 100px">
-	    			<select ng-model="newVehicle.type" ng-change="onNewVehicleChange()" style="width: -webkit-fill-available;">        
-	            		<option value="CAR">Car</option>
-	            		<option value="SCOOTER">Scooter</option>
-	            		<option value="BIKE">Bike</option>
-	    			</select>
-	    		</td>
-	  			<td style="max-width: 100px; min-width: 100px">
-	  				<input style="max-width: 100px" type="text" ng-model="newVehicle.regNumber" ng-change="onNewVehicleChange()">
-	  			</td>
-	  			<td style="max-width: 100px; min-width: 100px">
-	  				<input style="max-width: 100px" type="number" ng-model="newVehicle.productionYear" ng-change="onNewVehicleChange()">
-	  			</td>
-	  			<td style="max-width: 80px; min-width: 80px">
-	    			<select ng-model="newVehicle.available" ng-change="onNewVehicleChange()" style="width: -webkit-fill-available;">        
-	            		<option value="true">YES</option>
-	            		<option value="false">NO</option>
-	    			</select>
-	    		</td>
-	    		<td style="max-width: 200px; min-width: 200px">
-	  				<input style="min-width: 200px" type="text" ng-model="newVehicle.note" ng-change="onNewVehicleChange()">
-	  			</td>
-	    		<td style="max-width: 160px; min-width: 160px">
-	    			<button style="max-width: 160px; min-width: 160px" ng-disabled="!newVehicleButton" ng-click="addVehicle(newVehicle)">Add vehicle</button>
-	    		</td>
-	  		</tr>
-	  	</tfoot>
+		<tbody>
+			<tr ng-repeat="vehicle in vehicles track by $index" ng-if="vehicle">
+				<td>
+					<input class="form-control" type="text" ng-model="vehicle.brand" ng-change="onVehicleChange($index, vehicle)"
+					 value="vehicle">
+				</td>
+				<td>
+					<input class="form-control" type="text" ng-model="vehicle.model" ng-change="onVehicleChange($index, vehicle)"
+					 value="vehicle">
+				</td>
+				<td>
+					<select class="form-control" ng-model="vehicle.type" ng-change="onVehicleChange($index, vehicle)" style="width: -webkit-fill-available;">
+						<option value="CAR">Car</option>
+						<option value="SCOOTER">Scooter</option>
+						<option value="BIKE">Bike</option>
+					</select>
+				</td>
+				<td>
+					<input class="form-control" type="text" ng-model="vehicle.regNumber" ng-change="onVehicleChange($index, vehicle)"
+					 value="vehicle">
+				</td>
+				<td>
+					<input class="form-control" type="number" ng-model="vehicle.productionYear" ng-change="onVehicleChange($index, vehicle)">
+				</td>
+				<td>
+					<select class="form-control" ng-model="vehicle.available" ng-selected=true ng-change="onVehicleChange($index, vehicle)"
+					 style="width: -webkit-fill-available;">
+						<option selected=true value=true>YES</option>
+						<option ng-selected="vehicle.available" value=false>NO</option>
+					</select>
+				</td>
+				<td>
+					<input class="form-control" type="text" ng-model="vehicle.note" ng-change="onVehicleChange($index, vehicle)" value="vehicle">
+				</td>
+				<td>
+					<button class="btn btn-danger" ng-disabled="!resetVehicleButton[$index]" ng-click="resetVehicle($index, vehicle.id)">Reset</button>
+					<button class="btn btn-success" ng-disabled="!resetVehicleButton[$index]" ng-click="updateVehicle($index, vehicle)">Update</button>
+					<button class="btn btn-danger" ng-click="deleteVehicle(vehicle.id)">Delete</button>
+				</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td>
+					<input class="form-control" type="text" ng-model="newVehicle.brand" ng-change="onNewVehicleChange()">
+				</td>
+				<td>
+					<input class="form-control" type="text" ng-model="newVehicle.model" ng-change="onNewVehicleChange()">
+				</td>
+				<td>
+					<select class="form-control" ng-model="newVehicle.type" ng-change="onNewVehicleChange()" style="width: -webkit-fill-available;">
+						<option value="CAR">Car</option>
+						<option value="SCOOTER">Scooter</option>
+						<option value="BIKE">Bike</option>
+					</select>
+				</td>
+				<td>
+					<input class="form-control" type="text" ng-model="newVehicle.regNumber" ng-change="onNewVehicleChange()">
+				</td>
+				<td>
+					<input class="form-control" type="number" ng-model="newVehicle.productionYear" ng-change="onNewVehicleChange()">
+				</td>
+				<td>
+					<select class="form-control" ng-model="newVehicle.available" ng-change="onNewVehicleChange()" style="width: -webkit-fill-available;">
+						<option value="true">YES</option>
+						<option value="false">NO</option>
+					</select>
+				</td>
+				<td>
+					<input class="form-control" type="text" ng-model="newVehicle.note" ng-change="onNewVehicleChange()">
+				</td>
+				<td>
+					<button class="btn btn-success" ng-disabled="!newVehicleButton" ng-click="addVehicle(newVehicle)">Add
+						vehicle</button>
+				</td>
+			</tr>
+		</tfoot>
 	</table>
+	<!-- <table>
+		<caption>VEHICLES</caption>
+		<thead>
+			<tr>
+				<th>
+					<input type="text" placeholder="Search by brand" ng-model="searchVehicleByBrand" ng-change="searchVehicle()">
+				</th>
+				<th>
+					<input type="text" placeholder="Search by model" ng-model="searchVehicleByModel" ng-change="searchVehicle()">
+				</th>
+				<th>
+					<input type="text" placeholder="Search by type" ng-model="searchVehicleByType" ng-change="searchVehicle()">
+				</th>
+				<th>
+					<input type="text" placeholder="By registration" ng-model="searchVehicleByRegistration" ng-change="searchVehicle()">
+				</th>
+				<th>
+					<input type="text" onKeyDown="integerValidation()" placeholder="By year" ng-model="searchVehicleByYear" ng-change="searchVehicle()">
+				</th>
+				<th>
+					<input type="text" placeholder="Available" ng-model="searchVehicleByAvailable" ng-change="searchVehicle()">
+				</th>
+				<th>
+					<input type="text" placeholder="Search by note" ng-model="searchVehicleByNote" ng-change="searchVehicle()">
+				</th>
+			</tr>
+			<tr>
+				<th>Brand</th>
+				<th>Model</th>
+				<th>Type</th>
+				<th>Reg. number</th>
+				<th>Prod. year</th>
+				<th>Available</th>
+				<th>Note</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="vehicle in vehicles track by $index" ng-if="vehicle">
+				<td>
+					<input type="text" ng-model="vehicle.brand" ng-change="onVehicleChange($index, vehicle)" value="vehicle">
+				</td>
+				<td>
+					<input type="text" ng-model="vehicle.model" ng-change="onVehicleChange($index, vehicle)" value="vehicle">
+				</td>
+				<td>
+					<select ng-model="vehicle.type" ng-change="onVehicleChange($index, vehicle)" style="width: -webkit-fill-available;">
+						<option value="CAR">Car</option>
+						<option value="SCOOTER">Scooter</option>
+						<option value="BIKE">Bike</option>
+					</select>
+				</td>
+				<td>
+					<input type="text" ng-model="vehicle.regNumber" ng-change="onVehicleChange($index, vehicle)" value="vehicle">
+				</td>
+				<td>
+					<input type="number" ng-model="vehicle.productionYear" ng-change="onVehicleChange($index, vehicle)">
+				</td>
+				<td>
+					<select ng-model="vehicle.available" ng-selected=true ng-change="onVehicleChange($index, vehicle)" style="width: -webkit-fill-available;">
+						<option selected=true value=true>YES</option>
+						<option ng-selected="vehicle.available" value=false>NO</option>
+					</select>
+				</td>
+				<td>
+					<input type="text" ng-model="vehicle.note" ng-change="onVehicleChange($index, vehicle)" value="vehicle">
+				</td>
+				<td>
+					<button ng-disabled="!resetVehicleButton[$index]" ng-click="resetVehicle($index, vehicle.id)">Reset</button>
+					<button ng-disabled="!resetVehicleButton[$index]" ng-click="updateVehicle($index, vehicle)">Update</button>
+					<button ng-click="deleteVehicle(vehicle.id)">Delete</button>
+				</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td>
+					<input type="text" ng-model="newVehicle.brand" ng-change="onNewVehicleChange()">
+				</td>
+				<td>
+					<input type="text" ng-model="newVehicle.model" ng-change="onNewVehicleChange()">
+				</td>
+				<td>
+					<select ng-model="newVehicle.type" ng-change="onNewVehicleChange()" style="width: -webkit-fill-available;">
+						<option value="CAR">Car</option>
+						<option value="SCOOTER">Scooter</option>
+						<option value="BIKE">Bike</option>
+					</select>
+				</td>
+				<td>
+					<input type="text" ng-model="newVehicle.regNumber" ng-change="onNewVehicleChange()">
+				</td>
+				<td>
+					<input type="number" ng-model="newVehicle.productionYear" ng-change="onNewVehicleChange()">
+				</td>
+				<td>
+					<select ng-model="newVehicle.available" ng-change="onNewVehicleChange()" style="width: -webkit-fill-available;">
+						<option value="true">YES</option>
+						<option value="false">NO</option>
+					</select>
+				</td>
+				<td>
+					<input type="text" ng-model="newVehicle.note" ng-change="onNewVehicleChange()">
+				</td>
+				<td>
+					<button ng-disabled="!newVehicleButton" ng-click="addVehicle(newVehicle)">Add
+						vehicle</button>
+				</td>
+			</tr>
+		</tfoot>
+	</table> -->
 </div>

@@ -1,27 +1,80 @@
-<div>
-	<div class="login" style="float:right;">
-		<div>
-			<input type="text" placeholder="Username" ng-model="usernameLogin" ng-change="loginChange()"></input><br/>
-			<input type="password" placeholder="Password" ng-model="passwordLogin" ng-change="loginChange()"></input><br/>
-			<button ng-click="login()" ng-disabled="!loginButton">Login</button>
-		</div>
-		<div style="position: absolute;">
-			<label>{{messageLogin}}</label>
+<div class="container-fluid">
+	<div class="row">
+		<ul class="nav nav-tabs col-12 mb-5 text-center d-block p-3">
+			<li class="active d-inline-block"><span data-target="#tab1" class="badge badge-secondary active" data-toggle="tab">Login</span></li>
+			<li class="d-inline-block"><span data-target="#tab2" class="badge badge-secondary" data-toggle="tab">Register</span></li>
+		</ul>
+		<div class="tab-content col-12">
+			<div class="tab-pane active" id="tab1">
+				<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+					<div class="card card-signin my-5">
+						<div class="card-body">
+							<h5 class="card-title text-center">Sign In</h5>
+							<form class="form-signin">
+								<div class="form-label-group mb-3">
+									<input type="text" placeholder="Username" ng-model="usernameLogin" ng-change="loginChange()" id="Username" class="form-control"
+									 placeholder="Username" required>
+								</div>
+								<div class="form-label-group mb-3">
+									<input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="passwordLogin"
+									 ng-change="loginChange()" required>
+								</div>
+								<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" ng-click="login()" ng-disabled="!loginButton">Sign
+									in</button>
+							</form>
+							<div>
+								<label class="text-danger">{{messageLogin}}</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane" id="tab2">
+				<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+					<div class="card card-signin my-5">
+						<div class="card-body">
+							<h5 class="card-title text-center">Register</h5>
+							<form class="form-signin">
+								<div class="form-label-group mb-3">
+									<input type="text" placeholder="Name" ng-model="nameRegistration" ng-change="registrationChange()" class="form-control"
+									 required>
+								</div>
+								<div class="form-label-group mb-3">
+									<input type="text" placeholder="Surname" ng-model="surnameRegistration" ng-change="registrationChange()" class="form-control"
+									 required>
+								</div>
+								<div class="form-label-group mb-3">
+									<input type="text" placeholder="Phone Number" ng-model="phoneRegistration" ng-change="registrationChange()"
+									 class="form-control" required>
+								</div>
+								<div class="form-label-group mb-3">
+									<input type="text" placeholder="Email" ng-model="emailRegistration" ng-change="registrationChange()" class="form-control"
+									 required>
+								</div>
+								<div class="form-label-group mb-3">
+									<input type="text" placeholder="Username" ng-model="usernameRegistration" ng-change="registrationChange()" class="form-control"
+									 required>
+								</div>
+								<div class="form-label-group mb-3">
+									<input type="password" placeholder="Password" ng-model="passwordRegistration" ng-change="registrationChange()"
+									 class="form-control" required>
+								</div>
+								<div class="form-label-group mb-3">
+									<input type="password" placeholder="Repeat Password " ng-model="password2Registration" ng-change="registrationChange()"
+									 class="form-control" required>
+								</div>
+								<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" ng-click="register()" ng-disabled="!registerButton">Register</button>
+							</form>
+							<div>
+								<label class="text-danger">{{messageRegistration}}</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-	<div class="registration" style="float:left;">
-		<div>
-			<input type="text" placeholder="Name" ng-model="nameRegistration" ng-change="registrationChange()"></input><br/>
-			<input type="text" placeholder="Surname" ng-model="surnameRegistration" ng-change="registrationChange()"></input><br/>
-			<input type="text" placeholder="Phone Number" ng-model="phoneRegistration" ng-change="registrationChange()"></input><br/>
-			<input type="text" placeholder="Email" ng-model="emailRegistration" ng-change="registrationChange()"></input><br/>
-			<input type="text" placeholder="Username" ng-model="usernameRegistration" ng-change="registrationChange()"></input><br/>
-			<input type="password" placeholder="Password" ng-model="passwordRegistration" ng-change="registrationChange()"></input><br/>
-			<input type="password" placeholder="Repeat Password " ng-model="password2Registration" ng-change="registrationChange()"></input><br/>	
-			<button ng-click="register()" ng-disabled="!registerButton">Register</button>
-		</div>
-		<div style="position: absolute;">
-			<label">{{messageRegistration}}</label>
-		</div>
+	<div class="row">
 	</div>
+
 </div>

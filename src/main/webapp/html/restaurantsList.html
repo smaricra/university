@@ -1,74 +1,78 @@
-<div ng-controller="restaurantsListCtrl">
-<table>
-		<caption>RESTAURANTS</caption>
-		<thead style="display: list-item;">
-			<tr>
-				<th style="max-width: 140px; min-width: 140px">
-					<input style="max-width: 140px; min-width: 140px" type="text" placeholder="Search by name" ng-model="searchRestaurantByName" ng-change="searchRestaurant()" >
-				</th>
-				<th style="max-width: 200px; min-width: 200px">
-					<input style="max-width: 200px; min-width: 200px" type="text" placeholder="Search by address" ng-model="searchRestaurantByAddress" ng-change="searchRestaurant()" >
-				</th>
-				<th style="max-width: 140px; min-width: 140px">
-					<input style="max-width: 140px; min-width: 140px" type="text" placeholder="Search by category" ng-model="searchRestaurantByCategory" ng-change="searchRestaurant()" >
-				</th>
-				<th style="max-width: 140px; min-width: 140px">
-					<button ng-click="clearRestaurantFilter()">Clear filter</button>
-				</th>
-			<tr>
-				<th>Name</th>
-				<th>Address</th>
-				<th>Category</th>
-				<th style="max-width: 160px; min-width: 160px">Action</th>
-			</tr>
-		</thead>
-		<tbody style="display: list-item; border: 1px solid green; height: 100px; overflow-y: scroll">
-	  		<tr align="left" ng-repeat="restaurant in restaurants track by $index" ng-if="restaurant">
-	    		<td style="max-width: 140px; min-width: 140px">
-	    			<input style="max-width: 140px" type="text" ng-model="restaurant.name" ng-change="onRestaurantChange($index, restaurant)" value="restaurant.name">
-	    		</td>
-	    		<td style="max-width: 200px; min-width: 200px">
-	    			<input style="min-width: 200px" type="text" ng-model="restaurant.address" ng-change="onRestaurantChange($index, restaurant)" value="restaurant.address">
-	    		</td>
-	    		<td style="max-width: 140px; min-width: 140px">
-	    			<select ng-model="restaurant.category" ng-change="onRestaurantChange($index, restaurant)" style="width: -webkit-fill-available;">        
-	            		<option value="DOMESTIC">Domestic</option>
-	            		<option value="BARBECUE">Barbecue</option>
-	            		<option value="CHINESE">Chinese</option>
-	            		<option value="INDIAN">Indian</option>
-	            		<option value="PASTRY_SHOP">Pastry shop</option>
-	            		<option value="PIZZERIA">Pizzeria</option>
-	    			</select>
-	    		</td>
-	    		<td style="display: flex; max-width: 160px; min-width: 160px">
-	    			<button style="width:33%;" ng-disabled="!resetRestaurantButton[$index]" ng-click="resetRestaurant($index, restaurant.id)">Reset</button>
-	    			<button style="width:33%;" ng-disabled="!resetRestaurantButton[$index]" ng-click="updateRestaurant($index, restaurant)">Update</button>
-	    			<button style="width:33%;" ng-click="deleteRestaurant(restaurant.id)">Delete</button>
-	    		</td>
-	  		</tr>
-	  	</tbody>
-	  	<tfoot style="display: list-item;">
-	  		<tr>
-	  			<td style="max-width: 140px; min-width: 140px">
-	  				<input style="max-width: 140px" type="text" ng-model="newRestaurant.name" ng-change="onNewRestaurantChange()">
-	  			</td>
-	  			<td style="max-width: 200px; min-width: 200px">
-	  				<input style="min-width: 200px" type="text" ng-model="newRestaurant.address" ng-change="onNewRestaurantChange()">
-	  			</td>
-	  			<td style="max-width: 140px; min-width: 140px">
-	    			<select style="width: -webkit-fill-available;" ng-model="newRestaurant.category" ng-change="onNewRestaurantChange()">        
-	            		<option value="DOMESTIC">Domestic</option>
-	            		<option value="BARBECUE">Barbecue</option>
-	            		<option value="CHINESE">Chinese</option>
-	            		<option value="INDIAN">Indian</option>
-	            		<option value="PASTRY_SHOP">Pastry shop</option>
-	            		<option value="PIZZERIA">Pizzeria</option>
-	    			</select>
-	    		</td>
-	    		<td style="max-width: 160px; min-width: 160px">
-	    			<button style="max-width: 160px; min-width: 160px" ng-disabled="!newRestaurantButton" ng-click="addRestaurant(newRestaurant)">Add restaurant</button>
-	    		</td>
-	  		</tr>
-	  	</tfoot>
-	</table>
-</div>
+<div class="restaurantslist" ng-controller="restaurantsListCtrl">
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">
+						<input type="text" class="form-control" placeholder="Search by name" ng-model="searchRestaurantByName" ng-change="searchRestaurant()">
+					</th>
+					<th scope="col">
+						<input type="text" class="form-control" placeholder="Search by address" ng-model="searchRestaurantByAddress"
+						 ng-change="searchRestaurant()">
+					</th>
+					<th scope="col">
+						<input type="text" class="form-control" placeholder="Search by category" ng-model="searchRestaurantByCategory"
+						 ng-change="searchRestaurant()">
+					</th>
+					<th scope="col">
+						<button class="btn btn-danger" ng-click="clearRestaurantFilter()">Clear filter</button>
+					</th>
+				</tr>
+				<tr>
+					<th>Name</th>
+					<th>Address</th>
+					<th>Category</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="restaurant in restaurants track by $index" ng-if="restaurant">
+					<td>
+						<input class="form-control" type="text" ng-model="restaurant.name" ng-change="onRestaurantChange($index, restaurant)"
+						 value="restaurant.name">
+					</td>
+					<td>
+						<input class="form-control" type="text" ng-model="restaurant.address" ng-change="onRestaurantChange($index, restaurant)"
+						 value="restaurant.address">
+					</td>
+					<td>
+						<select class="form-control" ng-model="restaurant.category" ng-change="onRestaurantChange($index, restaurant)">
+							<option value="DOMESTIC">Domestic</option>
+							<option value="BARBECUE">Barbecue</option>
+							<option value="CHINESE">Chinese</option>
+							<option value="INDIAN">Indian</option>
+							<option value="PASTRY_SHOP">Pastry shop</option>
+							<option value="PIZZERIA">Pizzeria</option>
+						</select>
+					</td>
+					<td>
+						<button class="btn btn-danger" ng-disabled="!resetRestaurantButton[$index]" ng-click="resetRestaurant($index, restaurant.id)">Reset</button>
+						<button class="btn btn-info" ng-disabled="!resetRestaurantButton[$index]" ng-click="updateRestaurant($index, restaurant)">Update</button>
+						<button class="btn btn-danger" ng-click="deleteRestaurant(restaurant.id)">Delete</button>
+					</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td>
+						<input class="form-control" type="text" ng-model="newRestaurant.name" ng-change="onNewRestaurantChange()">
+					</td>
+					<td>
+						<input class="form-control" type="text" ng-model="newRestaurant.address" ng-change="onNewRestaurantChange()">
+					</td>
+					<td>
+						<select class="form-control" ng-model="newRestaurant.category" ng-change="onNewRestaurantChange()">
+							<option value="DOMESTIC">Domestic</option>
+							<option value="BARBECUE">Barbecue</option>
+							<option value="CHINESE">Chinese</option>
+							<option value="INDIAN">Indian</option>
+							<option value="PASTRY_SHOP">Pastry shop</option>
+							<option value="PIZZERIA">Pizzeria</option>
+						</select>
+					</td>
+					<td>
+						<button class="btn btn-success" ng-disabled="!newRestaurantButton" ng-click="addRestaurant(newRestaurant)">Add restaurant</button>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
