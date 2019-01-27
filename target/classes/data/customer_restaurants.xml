@@ -1,0 +1,40 @@
+<customerRestaurantRepo>
+   <customerRestaurants class="java.util.ArrayList">
+   	<customerRestaurant>
+   		<id>0</id>
+   		<active>true</active>
+   		<customerId>1</customerId>
+   		<restaurantId>0</restaurantId>
+   	</customerRestaurant>
+   	<customerRestaurant>
+   		<id>1</id>
+   		<active>true</active>
+   		<customerId>1</customerId>
+   		<restaurantId>1</restaurantId>
+   	</customerRestaurant>
+   	<customerRestaurant>
+   		<id>2</id>
+   		<active>true</active>
+   		<customerId>1</customerId>
+   		<restaurantId>3</restaurantId>
+   	</customerRestaurant>
+   	<customerRestaurant>
+   		<id>3</id>
+   		<active>true</active>
+   		<customerId>4</customerId>
+   		<restaurantId>0</restaurantId>
+   	</customerRestaurant>
+   	<customerRestaurant>
+   		<id>4</id>
+   		<active>true</active>
+   		<customerId>4</customerId>
+   		<restaurantId>2</restaurantId>
+   	</customerRestaurant>
+   	<customerRestaurant>
+   		<id>5</id>
+   		<active>true</active>
+   		<customerId>4</customerId>
+   		<restaurantId>5</restaurantId>
+   	</customerRestaurant>
+   </customerRestaurants>
+</customerRestaurantRepo>

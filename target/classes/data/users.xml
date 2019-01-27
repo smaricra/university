@@ -1,0 +1,88 @@
+<userRepo>
+   <users class="java.util.ArrayList">
+      <user>
+         <id>0</id>
+         <active>true</active>
+         <username>sava.maric</username>
+         <password>sava</password>
+         <name>Sava</name>
+         <surname>Maric</surname>
+         <role>ADMIN</role>
+         <phoneNumber>0645262125</phoneNumber>
+         <email>sava.maric@hotmail.com</email>
+         <registrationDate>2018-06-11 06:26:51.526 CEST</registrationDate>
+      </user>
+      <user>
+         <id>1</id>
+         <active>true</active>
+         <username>pera.peric</username>
+         <password>pera</password>
+         <name>Pera</name>
+         <surname>Peric</surname>
+         <role>CUSTOMER</role>
+         <phoneNumber>064222444</phoneNumber>
+         <email>pera.peric@gmail.com</email>
+         <registrationDate>2018-06-11 06:26:51.526 CEST</registrationDate>
+      </user>
+      <user>
+         <id>2</id>
+         <active>true</active>
+         <username>zika.zikic</username>
+         <password>zika</password>
+         <name>Zika</name>
+         <surname>Zikic</surname>
+         <role>DELIVERER</role>
+         <phoneNumber>064222343</phoneNumber>
+         <email>zika.zikic@yahoo.com</email>
+         <registrationDate>2018-06-11 06:26:51.526 CEST</registrationDate>
+      </user>
+      <user>
+         <id>3</id>
+         <active>true</active>
+         <username>asistent</username>
+         <password>asistent</password>
+         <name>Asistent</name>
+         <surname>Asistent</surname>
+         <role>ADMIN</role>
+         <phoneNumber>064654321</phoneNumber>
+         <email>asistent@uns.ac.rs</email>
+         <registrationDate>2018-06-11 06:26:51.0 CEST</registrationDate>
+      </user>
+      <user>
+         <id>4</id>
+         <active>true</active>
+         <username>jovan.jovanovic</username>
+         <password>jovan</password>
+         <name>Jovan</name>
+         <surname>Jovanovic</surname>
+         <role>CUSTOMER</role>
+         <phoneNumber>062111111</phoneNumber>
+         <email>jovan.jovanovic@hotmail.com</email>
+         <registrationDate>2018-06-11 06:26:51.526 CEST</registrationDate>
+      </user>
+      <user>
+         <id>5</id>
+         <active>true</active>
+         <username>sara.saric</username>
+         <password>sara</password>
+         <name>Sara</name>
+         <surname>Saric</surname>
+         <role>DELIVERER</role>
+         <phoneNumber>060050668</phoneNumber>
+         <email>sara021@gmail.com</email>
+         <registrationDate>2018-06-11 06:26:51.526 CEST</registrationDate>
+      </user>
+      <user>
+         <id>6</id>
+         <active>true</active>
+         <username>boza.bozic</username>
+         <password>boza</password>
+         <name>Boza</name>
+         <surname>Bozic</surname>
+         <role>CUSTOMER</role>
+         <phoneNumber>061332233</phoneNumber>
+         <email>bozidar@company.com</email>
+         <registrationDate>2018-06-15 07:02:58.0 CEST</registrationDate>
+      </user>
+   </users>
+</userRepo>

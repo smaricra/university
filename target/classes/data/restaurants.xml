@@ -1,0 +1,228 @@
+<restaurantRepo>
+   <restaurants class="java.util.ArrayList">
+      <restaurant>
+         <id>0</id>
+         <active>true</active>
+         <name>Domacin</name>
+         <address>Futoska 22, Novi Sad</address>
+         <category>DOMESTIC</category>
+      </restaurant>
+      <restaurant>
+         <id>1</id>
+         <active>true</active>
+         <name>Dva stapica</name>
+         <address>Bulevar Oslobodjenja 24, Novi Sad</address>
+         <category>CHINESE</category>
+      </restaurant>
+      <restaurant>
+         <id>2</id>
+         <active>true</active>
+         <name>Leskovacki rostilj</name>
+         <address>Somborska 88, Novi Sad</address>
+         <category>BARBECUE</category>
+      </restaurant>
+      <restaurant>
+         <id>3</id>
+         <active>true</active>
+         <name>Krcma</name>
+         <address>Ive Lole Ribara 22, Veternik</address>
+         <category>DOMESTIC</category>
+      </restaurant>
+      <restaurant>
+         <id>4</id>
+         <active>true</active>
+         <name>Skroz Dobra Pekara</name>
+         <address>Zmaj Jovina 2, Novi Sad</address>
+         <category>PASTRY_SHOP</category>
+      </restaurant>
+      <restaurant>
+         <id>5</id>
+         <active>true</active>
+         <name>Vojvodjanka 6</name>
+         <address>Jevrejska 33, Novi Sad</address>
+         <category>DOMESTIC</category>
+      </restaurant>
+      <restaurant>
+         <id>6</id>
+         <active>true</active>
+         <name>88</name>
+         <address>Bulevar Oslobodjenja 12, Novi Sad</address>
+         <category>CHINESE</category>
+      </restaurant>
+      <restaurant>
+         <id>7</id>
+         <active>true</active>
+         <name>Zvezdana</name>
+         <address>Knez Mihajlova 44, Beograd</address>
+         <category>PASTRY_SHOP</category>
+      </restaurant>
+      <restaurant>
+         <id>8</id>
+         <active>true</active>
+         <name>Zeki</name>
+         <address>Bulevar Oslobodjenja 54, Novi Sad</address>
+         <category>PASTRY_SHOP</category>
+      </restaurant>
+      <restaurant>
+         <id>9</id>
+         <active>true</active>
+         <name>Hleb i kifle</name>
+         <address>Cara Dusana 21, Novi Sad</address>
+         <category>PASTRY_SHOP</category>
+      </restaurant>
+      <restaurant>
+         <id>10</id>
+         <active>true</active>
+         <name>Rostilj X</name>
+         <address>Balkanska 3, Beograd</address>
+         <category>BARBECUE</category>
+      </restaurant>
+      <restaurant>
+         <id>11</id>
+         <active>true</active>
+         <name>Kuhinjica</name>
+         <address>Futoska 56, Novi Sad</address>
+         <category>DOMESTIC</category>
+      </restaurant>
+      <restaurant>
+         <id>12</id>
+         <active>true</active>
+         <name>Kuca Kobasice</name>
+         <address>Neka ulica 33, Novi Sad</address>
+         <category>BARBECUE</category>
+      </restaurant>
+      <restaurant>
+         <id>13</id>
+         <active>false</active>
+         <name>Hong Kong</name>
+         <address>ff</address>
+         <category>CHINESE</category>
+      </restaurant>
+      <restaurant>
+         <id>14</id>
+         <active>false</active>
+         <name>fffff</name>
+         <address>rrfff</address>
+         <category>BARBECUE</category>
+      </restaurant>
+      <restaurant>
+         <id>15</id>
+         <active>false</active>
+         <name>Sava</name>
+         <address>Maric</address>
+         <category>DOMESTIC</category>
+      </restaurant>
+      <restaurant>
+         <id>16</id>
+         <active>false</active>
+         <name>BlaBla</name>
+         <address>BlaBla</address>
+         <category>BARBECUE</category>
+      </restaurant>
+      <restaurant>
+         <id>17</id>
+         <active>true</active>
+         <name>Mira</name>
+         <address>Dunavska 3, Novi Sad</address>
+         <category>PIZZERIA</category>
+      </restaurant>
+      <restaurant>
+         <id>18</id>
+         <active>false</active>
+         <name>jjj</name>
+         <address>lllllk</address>
+         <category>DOMESTIC</category>
+      </restaurant>
+      <restaurant>
+         <id>19</id>
+         <active>true</active>
+         <name>Miraa</name>
+         <address>savaaaaa</address>
+         <category>DOMESTIC</category>
+      </restaurant>
+      <restaurant>
+         <id>20</id>
+         <active>true</active>
+         <name>Rest13</name>
+         <address>Grmecka 47</address>
+         <category>BARBECUE</category>
+      </restaurant>
+      <restaurant>
+         <id>21</id>
+         <active>false</active>
+         <name>Bla</name>
+         <address>Bla</address>
+         <category>DOMESTIC</category>
+      </restaurant>
+      <restaurant>
+         <id>22</id>
+         <active>false</active>
+         <name>GoodRest</name>
+         <address>Address47</address>
+         <category>PIZZERIA</category>
+      </restaurant>
+      <restaurant>
+         <id>23</id>
+         <active>true</active>
+         <name>sss</name>
+         <address>sss</address>
+         <category>PIZZERIA</category>
+      </restaurant>
+      <restaurant>
+         <id>24</id>
+         <active>false</active>
+         <name>nnn</name>
+         <address>nnn</address>
+         <category>DOMESTIC</category>
+      </restaurant>
+      <restaurant>
+         <id>25</id>
+         <active>false</active>
+         <name>llllll</name>
+         <address>Promenjena Adresa</address>
+         <category>PASTRY_SHOP</category>
+      </restaurant>
+      <restaurant>
+         <id>26</id>
+         <active>false</active>
+         <name>vvvl</name>
+         <address>vvv.d.d</address>
+         <category>BARBECUE</category>
+      </restaurant>
+      <restaurant>
+         <id>27</id>
+         <active>false</active>
+         <name>bbb</name>
+         <address>bbbbbb</address>
+         <category>BARBECUE</category>
+      </restaurant>
+      <restaurant>
+         <id>28</id>
+         <active>true</active>
+         <name>Sasvim Novo</name>
+         <address>Adresa 2, Grad</address>
+         <category>BARBECUE</category>
+      </restaurant>
+      <restaurant>
+         <id>29</id>
+         <active>true</active>
+         <name>Novo Sasvim</name>
+         <address>Adresa Neka 222, Neki Grad</address>
+         <category>INDIAN</category>
+      </restaurant>
+      <restaurant>
+         <id>30</id>
+         <active>true</active>
+         <name>bbblll</name>
+         <address>bbb</address>
+         <category>DOMESTIC</category>
+      </restaurant>
+      <restaurant>
+         <id>31</id>
+         <active>true</active>
+         <name>ddssaaa</name>
+         <address>sdsdsd</address>
+         <category>DOMESTIC</category>
+      </restaurant>
+   </restaurants>
+</restaurantRepo>

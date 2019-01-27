@@ -1,0 +1,27 @@
+<div>
+	<div class="login" style="float:right;">
+		<div>
+			<input type="text" placeholder="Username" ng-model="usernameLogin" ng-change="loginChange()"></input><br/>
+			<input type="password" placeholder="Password" ng-model="passwordLogin" ng-change="loginChange()"></input><br/>
+			<button ng-click="login()" ng-disabled="!loginButton">Login</button>
+		</div>
+		<div style="position: absolute;">
+			<label>{{messageLogin}}</label>
+		</div>
+	</div>
+	<div class="registration" style="float:left;">
+		<div>
+			<input type="text" placeholder="Name" ng-model="nameRegistration" ng-change="registrationChange()"></input><br/>
+			<input type="text" placeholder="Surname" ng-model="surnameRegistration" ng-change="registrationChange()"></input><br/>
+			<input type="text" placeholder="Phone Number" ng-model="phoneRegistration" ng-change="registrationChange()"></input><br/>
+			<input type="text" placeholder="Email" ng-model="emailRegistration" ng-change="registrationChange()"></input><br/>
+			<input type="text" placeholder="Username" ng-model="usernameRegistration" ng-change="registrationChange()"></input><br/>
+			<input type="password" placeholder="Password" ng-model="passwordRegistration" ng-change="registrationChange()"></input><br/>
+			<input type="password" placeholder="Repeat Password " ng-model="password2Registration" ng-change="registrationChange()"></input><br/>	
+			<button ng-click="register()" ng-disabled="!registerButton">Register</button>
+		</div>
+		<div style="position: absolute;">
+			<label">{{messageRegistration}}</label>
+		</div>
+	</div>
+</div>

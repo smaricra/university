@@ -1,0 +1,55 @@
+<div ng-controller="usersListCtrl">
+	<table>
+		<caption>USERS</caption>
+		<thead style="display: list-item;">
+			<tr>
+				<th style="max-width: 140px; min-width: 140px">
+					<input style="max-width: 140px" type="text" placeholder="Search by username" ng-model="serachUserByUsername" ng-change="searchUser()" >
+				</th>
+				<th style="max-width: 200px; min-width: 200px">
+					<input style="max-width: 200px; min-width: 200px" type="text" placeholder="Search by email" ng-model="serachUserByEmail" ng-change="searchUser()">
+				</th>
+				<th style="max-width: 140px; min-width: 140px">
+					<input style="max-width: 140px" type="text" placeholder="Search by name" ng-model="serachUserByName" ng-change="searchUser()">
+				</th>
+				<th style="max-width: 140px; min-width: 140px">
+					<input style="max-width: 140px" type="text" placeholder="Search by surname" ng-model="serachUserBySurname" ng-change="searchUser()">
+				</th>
+				<th style="max-width: 140px; min-width: 140px">
+					<input style="max-width: 140px" type="text" placeholder="Search by role" ng-model="serachUserByRole" ng-change="searchUser()">
+				</th>
+				<th style="max-width: 140px; min-width: 140px">
+					<button ng-click="clearUserFilter()">Clear filter</button>
+				</th>
+			</tr>
+			<tr>
+				<th>Username</th>
+				<th>Email</th>
+				<th>Name</th>
+				<th>Surname</th>
+				<th>Role</th>
+				<th style="max-width: 140px; min-width: 140px">Action</th>
+			</tr>
+		</thead>
+		<tbody style="display: list-item; border: 1px solid green; height: 100px; overflow-y: scroll">
+	  		<tr align="left" ng-repeat="user in users track by $index" ng-if="user">
+	    		<td style="max-width: 140px; min-width: 140px">{{user.username}}</td>
+	    		<td style="max-width: 200px; min-width: 200px">{{user.email}}</td>
+	    		<td style="max-width: 140px; min-width: 140px">{{user.name}}</td>
+	    		<td style="max-width: 140px; min-width: 140px">{{user.surname}}</td>
+	    		<td style="max-width: 140px; min-width: 140px">
+	    			<select ng-model="user.role" ng-change="onUserChange($index, user)" style="width: -webkit-fill-available;">        
+	            		<option value="ADMIN">Admin</option>
+	            		<option value="CUSTOMER">Customer</option>
+	            		<option value="DELIVERER">Deliverer</option>
+	    			</select>
+	    		</td>
+	    		<td style="display: flex; max-width: 140px; min-width: 140px">
+	    			<button style="width:50%;" ng-disabled="!resetUserButton[$index]" ng-click="resetUser($index, user.id)">Reset</button>
+	    			<button style="width:50%;" ng-disabled="!resetUserButton[$index]" ng-click="updateUser($index, user)">Update</button>
+	    		</td>
+	    		</div>
+	  		</tr>
+  		</tbody>
+	</table>
+</div>
