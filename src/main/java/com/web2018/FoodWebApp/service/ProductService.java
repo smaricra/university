@@ -24,7 +24,7 @@ public class ProductService {
 	private static ServletContext servletContext;
 
 	private static Serializer serializer = new Persister();
-	private static String tempUrl = "C:/Users/Sava/Documents/Projects/Fax/FoodWebApp/src/main/resources/data/products.xml";
+	private static String tempUrl = "D:\\work\\university\\src\\main\\resources\\data\\products.xml";
 	//private static URL userURL = UserService.class.getResource("/data/products.xml");
 	private static String fixedUrl;
 	

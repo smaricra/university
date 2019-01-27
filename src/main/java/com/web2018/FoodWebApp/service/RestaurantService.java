@@ -23,7 +23,7 @@ public class RestaurantService {
 	private static ServletContext servletContext;
 
 	private static Serializer serializer = new Persister();
-	private static String tempUrl = "C:/Users/Sava/Documents/Projects/Fax/FoodWebApp/src/main/resources/data/restaurants.xml";
+	private static String tempUrl = "D:\\work\\university\\src\\main\\resources\\data\\restaurants.xml";
 	//private static URL restaurantUrl = RestaurantService.class.getResource("/data/restaurants.xml");
 	private static String fixedUrl;
 	
